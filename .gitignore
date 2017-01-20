@@ -1,0 +1,12 @@
+# Mac OS
+.DS_Store
+
+# Eclipse Core
+.project
+
+# JPT-specific (Eclipse Java Development Tools)
+.classpath
+
+# Maven Project
+target/
+
