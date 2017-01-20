@@ -1,0 +1,4 @@
+name: Cardinal
+main: me.shirohana.cardinal.Main
+version: 0.1
+commands:
