@@ -1,11 +1,18 @@
 package me.shirohana.cardinal;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.bukkit.plugin.java.JavaPlugin;
+
+import me.shirohana.cardinal.exceptions.CardinalException;
+import me.shirohana.cardinal.modules.Module;
 
 public final class Cardinal {
 
     private static Cardinal instance;
     private static JavaPlugin plugin;
+    private final Map<String, Module> moduleMap = new HashMap<>();
 
     private Cardinal() { }
 
@@ -26,6 +33,13 @@ public final class Cardinal {
      */
     public void setPlugin(JavaPlugin plugin) {
         Cardinal.plugin = plugin;
+    }
+
+    public void plugModule(Module module) {
+        String name = module.getName();
+        if (moduleMap.containsKey(name))
+            throw new CardinalException("Module name exists: " + name);
+        moduleMap.put(name, module);
     }
 
 }
